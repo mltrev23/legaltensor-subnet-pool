@@ -1,0 +1,18 @@
+version: '3.8'  # Specify the Docker Compose file format version
+
+services:
+  postgres:
+    image: postgres:latest  # Use the latest PostgreSQL image
+    container_name: postgres-container  # Name of the container
+    restart: always  # Automatically restart the container if it stops
+    environment:
+      POSTGRES_USER: legaltensor  # Set the PostgreSQL username
+      POSTGRES_PASSWORD: legaltensor  # Set the PostgreSQL password
+      POSTGRES_DB: task-approval-endpoints  # Set the default database name
+    ports:
+      - "${POSTGRES_PORT}:5432"  # Map host port 5432 to container port 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/legaltensor-subnet-pool  # Persist data in a named volume
+
+volumes:
+  pgdata:  # Define the named volume for persistent storage

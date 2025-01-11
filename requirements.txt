@@ -1,0 +1,4 @@
+fastapi
+bittensor
+sqlalchemy
+python-dotenv
